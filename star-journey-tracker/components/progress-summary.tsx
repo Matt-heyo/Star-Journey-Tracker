@@ -7,7 +7,7 @@ interface ProgressSummaryProps {
 }
 
 const ProgressSummary = ({ tasks, milestones }: ProgressSummaryProps) => {
-  // Get tasks grouped by milestone
+  
   const tasksByMilestone = milestones
     .map((milestone) => {
       const milestoneTasks = tasks.filter((task) => task.milestoneId === milestone.id)
@@ -24,7 +24,7 @@ const ProgressSummary = ({ tasks, milestones }: ProgressSummaryProps) => {
     })
     .filter((item) => item.totalTasks > 0)
 
-  // Get overall progress
+ 
   const totalTasks = tasks.length
   const totalCompletedTasks = tasks.filter((task) => task.completed).length
   const overallProgress = totalTasks > 0 ? Math.round((totalCompletedTasks / totalTasks) * 100) : 0
